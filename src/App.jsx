@@ -1,4 +1,4 @@
-import React,  from "react";
+import React from "react";
 import AppContext from "./context/AppContext";
 import ShowProduct from "./components/product/ShowProduct";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
