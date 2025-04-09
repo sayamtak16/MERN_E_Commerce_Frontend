@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Link ,useParams} from "react-router-dom";
 
 const SearchProduct = () => {
-  const { products } = useContext(AppContext);
+  const { products,addToCart } = useContext(AppContext);
   const [searchProduct, setSearchProduct] = useState([]);
 
   const {term} = useParams()
@@ -55,7 +55,15 @@ const SearchProduct = () => {
                       <button className="btn btn-primary mx-3">
                         {product.price} {"₹"}
                       </button>
-                      <button className="btn btn-warning">Add To Cart</button>
+                      <button className="btn btn-warning"  onClick={() =>
+                        addToCart(
+                          product._id,
+                          product.title,
+                          product.price,
+                          1,
+                          product.imgSrc
+                        )
+                      }>Add To Cart</button>
                     </div>
                   </div>
                 </div>
