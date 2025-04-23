@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
@@ -10,6 +10,15 @@ const Navbar = () => {
   const { setFilteredData, products, logout, isAuthenticated, cart } =
     useContext(AppContext);
   // console.log("user cart = ",cart)
+
+  // Search
+  useEffect(() => {
+    setFilteredData(
+      products.filter((data) =>
+        data?.title?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [searchTerm, products]);
 
   const filterbyCategory = (cat) => {
     setFilteredData(
@@ -38,8 +47,8 @@ const Navbar = () => {
           >
             <h3>MERN E - Commerce</h3>
           </Link>
-          <form className="search_bar" onSubmit={submitHandler}>
-            <span className="material-symbols-outlined">search</span>{" "}
+          <form className="search_bar" onSubmit={submitHandler} >
+            <span className="material-symbols-outlined ">search</span>{" "}
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
