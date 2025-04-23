@@ -45,7 +45,7 @@ const Navbar = () => {
             className="left"
             style={{ textDecoration: "none", color: "white" }}
           >
-            <h3>MERN E - Commerce</h3>
+            <h3>ShopSwift</h3>
           </Link>
           <form className="search_bar" onSubmit={submitHandler} >
             <span className="material-symbols-outlined ">search</span>{" "}
